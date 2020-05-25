@@ -151,12 +151,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\String2JSON.cpp" />
     <ClCompile Include="WebServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\git\json\single_include\nlohmann\json.hpp" />
     <ClInclude Include="src\String2JSON.h" />
     <ClInclude Include="src\thirdparty\json.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config\urls.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

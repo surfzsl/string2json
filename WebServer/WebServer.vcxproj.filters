@@ -18,6 +18,9 @@
     <ClCompile Include="WebServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\String2JSON.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\git\json\single_include\nlohmann\json.hpp">
@@ -29,5 +32,8 @@
     <ClInclude Include="src\String2JSON.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config\urls.txt" />
   </ItemGroup>
 </Project>

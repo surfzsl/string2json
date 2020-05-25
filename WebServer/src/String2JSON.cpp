@@ -1,5 +1,5 @@
-#include <regex>
 #include "String2JSON.h"
+#include <iostream>
 
 vector<string> String2Json::split(const string &str, const string &seperator) {
 	string::size_type pos1, pos2;
@@ -13,11 +13,13 @@ vector<string> String2Json::split(const string &str, const string &seperator) {
 	}
 	if (pos1 != str.length())
 		result.push_back(str.substr(pos1));
+	return result;
 }
 
 string Login2Json::str2json() {
 	string response, strtmp;
 	strtmp = getResponse();
+	//std::cout << "strtmp=" << strtmp << endl;
 	vector<string> vec;
 	if (strtmp.empty())
 		return strtmp;
@@ -26,23 +28,23 @@ string Login2Json::str2json() {
 	//SUCCESS:
 	//(XXX)
 	//DENIED:xxxxxxx
-	regex login_reg;
-	if (strtmp.find("SUCCESS:") != string::npos) {
+	if (strtmp.find("SUCCESS") != string::npos) {
 		response += "\"SUCCESS\", \"domain\":";
-		vec = split(strtmp, "\\n");
+		vec = split(strtmp, "\n");
 		if (vec.size() > 1) {
-			response += "\"" + vec[1] +"\"";
+			response += "\"" + vec[1] +"\"}";
 		}
 		else {
-			response += "\"\"";
+			response += "\"\"}";
 		}
 	}
 	else if (strtmp.find("DENIED:") != string::npos) {
 		vec = split(strtmp, ":");
 		response += "\"DENIED\",\"reason\":\"";
 		if (vec.size() > 1) {
-			response += vec[1] + "\"";
+			response += vec[1] + "\"}";
 		}
 	}
+	//cout << "response=" << response << endl;
 	return response;
 }
