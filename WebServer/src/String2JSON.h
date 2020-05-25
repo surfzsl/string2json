@@ -1,9 +1,10 @@
 #ifndef WEB_STRING2JSON
 #define WEB_STRING2JSON
 #include <string>
-#include "thirdparty/json.hpp"
+//#include "thirdparty/json.hpp"
 using namespace std;
-using json = nlohmann::json;
+//using json = nlohmann::json;
+#include <vector>
 
 class String2Json
 {

@@ -9,7 +9,7 @@ vector<string> String2Json::split(const string &str, const string &seperator) {
 	while (string::npos != pos2) {
 		result.push_back(str.substr(pos1, pos2 - pos1));
 		pos1 = pos2 + seperator.size();
-		pos2 = str.find(str, pos1);
+		pos2 = str.find(seperator, pos1);
 	}
 	if (pos1 != str.length())
 		result.push_back(str.substr(pos1));
@@ -19,7 +19,6 @@ vector<string> String2Json::split(const string &str, const string &seperator) {
 string Login2Json::str2json() {
 	string response, strtmp;
 	strtmp = getResponse();
-	//std::cout << "strtmp=" << strtmp << endl;
 	vector<string> vec;
 	if (strtmp.empty())
 		return strtmp;
@@ -45,6 +44,5 @@ string Login2Json::str2json() {
 			response += vec[1] + "\"}";
 		}
 	}
-	//cout << "response=" << response << endl;
 	return response;
 }

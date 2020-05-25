@@ -22,10 +22,10 @@ int main()
 		while (getline(ifile, line))  
 		{
 			content += line;
-			content += '\n';
+			content += "\n";
 		}
 		content[content.size() - 1] = '\0';
-		cout << content << endl;
+		//cout << content << endl;
 	}
 	else 
 	{
