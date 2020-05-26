@@ -29,7 +29,13 @@ public:
 class Logout2Json:public String2Json
 {
 public:
-	string String2Json();
+	string str2json();
 };
+
+class Domainlist2Json:public String2Json
+{
+public:
+	string str2json();
+}
 #endif // !WEB_STRING2JSON
 #pragma once

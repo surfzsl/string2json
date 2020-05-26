@@ -47,7 +47,7 @@ string Login2Json::str2json() {
 	return response;
 }
 
-string Logout2Json::String2Json() {
+string Logout2Json::str2json() {
 	string response, strtmp;
 	strtmp = getResponse();
 	if (strtmp.find("SUCCESS") != string::npos || strtmp.find("DENIED") != string::npos) {
