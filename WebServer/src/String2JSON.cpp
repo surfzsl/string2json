@@ -80,3 +80,32 @@ string Domainlist2Json::str2json() {
 	}
 	return response;
 }
+
+string PermissionVariable2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//permissionVariable response message
+	//SUCCESS:
+	//(XXX)
+	//UNKNOWN
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\",  \"DATA\":{\"variable\": ";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			response += "\"" + vec[1] + "\"}}";
+		}
+		else {
+			response += "\"\"}}";
+		}
+	}
+	//else if (strtmp.find("UNKNOWN") != string::npos) {
+	else {
+		response += "\"UNKNOWN\"}";
+	}
+	return response;
+
+}
