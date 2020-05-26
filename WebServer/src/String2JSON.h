@@ -22,8 +22,14 @@ private:
 class Login2Json : public String2Json
 	
 {
-	virtual string str2json();
+public:
+	string str2json();
 };
 
+class Logout2Json:public String2Json
+{
+public:
+	string String2Json();
+};
 #endif // !WEB_STRING2JSON
 #pragma once

@@ -46,3 +46,15 @@ string Login2Json::str2json() {
 	}
 	return response;
 }
+
+string Logout2Json::String2Json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	if (strtmp.find("SUCCESS") != string::npos || strtmp.find("DENIED") != string::npos) {
+		Login2Json json;
+		json.setResponse(getResponse());
+		return json.str2json();
+	}
+	response = getResponse();
+	return response;
+}
