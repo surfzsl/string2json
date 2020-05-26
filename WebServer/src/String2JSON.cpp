@@ -58,3 +58,25 @@ string Logout2Json::str2json() {
 	response = getResponse();
 	return response;
 }
+
+string Domainlist2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	
+	
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"domainlist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			for (; i < vec.size()-1; i++) {
+				response += "\"" + vec[i] + "\",";
+			}
+			response += "\"" + vec[i] + "\"]}}";
+		}
+	}
+	return response;
+}

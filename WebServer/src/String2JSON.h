@@ -36,6 +36,6 @@ class Domainlist2Json:public String2Json
 {
 public:
 	string str2json();
-}
+};
 #endif // !WEB_STRING2JSON
 #pragma once
