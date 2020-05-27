@@ -26,18 +26,55 @@ public:
 	string str2json();
 };
 
-class Logout2Json:public String2Json
+class Logout2Json : public String2Json
 {
 public:
 	string str2json();
 };
 
-class Domainlist2Json:public String2Json
+class Domainlist2Json : public String2Json
 {
 public:
 	string str2json();
 };
-class PermissionVariable2Json :public String2Json
+
+class PermissionVariable2Json : public String2Json
+{
+public:
+	string str2json();
+};
+
+class ContentList2Json : public String2Json
+{
+public:
+	string str2json();
+};
+
+class SubscriptionList2Json : public String2Json
+{
+public:
+	string str2json();
+};
+
+class PublicationList2Json : public String2Json
+{
+public:
+	string str2json();
+};
+
+class UserSubServiceList2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class PeCheck2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class ItemCheck2Json :public String2Json
 {
 public:
 	string str2json();

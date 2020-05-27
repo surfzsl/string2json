@@ -44,6 +44,9 @@ string Login2Json::str2json() {
 			response += vec[1] + "\"}";
 		}
 	}
+	else {
+		response = "";
+	}
 	return response;
 }
 
@@ -108,4 +111,228 @@ string PermissionVariable2Json::str2json() {
 	}
 	return response;
 
+}
+
+string ContentList2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+
+	response = "{\"STATUS\":";
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "\"SUCCESS\", \"DATA\":{\"contentlist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			for (; i < vec.size() - 1; i++) {
+				response += "\"" + vec[i] + "\",";
+			}
+			response += "\"" + vec[i] + "\"]}}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"DENIED\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
+}
+
+string SubscriptionList2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"subscriptionlist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			for (; i < vec.size() - 1; i++) {
+				response += "\"" + vec[i] + "\",";
+			}
+			response += "\"" + vec[i] + "\"]}}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos) {
+		
+		vec = split(strtmp, ":");
+		response += "\"DENIED\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
+}
+
+string PublicationList2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"publicationlist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			for (; i < vec.size() - 1; i++) {
+				response += "\"" + vec[i] + "\",";
+			}
+			response += "\"" + vec[i] + "\"]}}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos) {
+
+		vec = split(strtmp, ":");
+		response += "\"DENIED\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
+}
+
+string UserSubServiceList2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"usersubservicelist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			vector<string> v;
+			for (; i < vec.size() - 1; i++) {
+				v = split(vec[i], ":");
+				if (v.size() > 1) {
+					response += "{\"name\":\"" + v[0] + "\", \"value\":\""+ v[1] +"\"},";
+				}
+			}
+			v = split(vec[i], ":");
+			response += "{\"name\":\"" + v[0] + "\", \"value\":\"" + v[1] + "\"}";
+			response += "]}}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos) {
+
+		vec = split(strtmp, ":");
+		response += "\"DENIED\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
+}
+
+string PeCheck2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"pelist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			vector<string> v;
+			for (; i < vec.size(); i++) {
+				v = split(vec[i], ",");
+				if (v.size() > 1) {
+					response += "{\"name\":\"" + v[0] + "\", \"value\":[";
+					int n = 1;
+					for (; n < v.size() - 1; n++) {
+						response += v[n] + ",";
+					}
+					response += v[n];
+					response += "]},";
+				}
+			}
+			response[response.size() - 1] = '\0';
+			response += "]}}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos || strtmp.find("FAILURE") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"" + vec[0] + "\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
+}
+
+string ItemCheck2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"itemlist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			vector<string> v;
+			for (; i < vec.size(); i++) {
+				v = split(vec[i], ",");
+				if (v.size() > 1) {
+					response += "{\"name\":\"" + v[0] + "\", \"value\":[";
+					int n = 1;
+					for (; n < v.size() - 1; n++) {
+						response += v[n] + ",";
+					}
+					response += v[n];
+					response += "]},";
+				}
+			}
+			response[response.size() - 1] = '\0';
+			response += "]}}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos || strtmp.rfind("FAILURE") != string::npos) {
+
+		vec = split(strtmp, ":");
+		response += "\"" + vec[0] + "\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
 }
