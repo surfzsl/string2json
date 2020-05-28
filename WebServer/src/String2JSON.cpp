@@ -379,3 +379,43 @@ string PublicationPeCheck::str2json() {
 	}
 	return response;
 }
+
+string PeToSubserviceList2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"mappingruleslist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			vector<string> v;
+			for (; i < vec.size(); i++) {
+				v = split(vec[i], ":");
+				if (v.size() < 4)
+					continue;
+				response += "{\"pe\":\"" + v[0] +"\",";
+				response += "\"subserviceType\":\"" + v[1] + "\",";
+				response += "\"operator\":\"" + v[2] + "\",";
+				response += "\"subserviceName\":\"" + v[3] + "\"},";
+				}
+			}
+			response[response.size() - 1] = '\0';
+			response += "]}}";
+	}
+	else if (strtmp.find("DENIED:") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"" + vec[0] + "\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "";
+	}
+	return response;
+}

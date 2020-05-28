@@ -20,7 +20,8 @@ int main()
 	//String2Json *str = new SubscriptionList2Json();
 	//String2Json *str = new PublicationList2Json();
 	//String2Json *str = new UserSubServiceList2Json();
-	String2Json *str = new PeCheck2Json();
+	//String2Json *str = new PeCheck2Json();
+	String2Json *str = new PeToSubserviceList2Json();
 	//str->str2json();
 	string content = "";
 
@@ -38,8 +39,8 @@ int main()
 	{
 		cout << "no such file" << endl;
 	}
-	str->setResponse("FAILURE:BAD_PESET");
-	//str->setResponse(content);
+	//str->setResponse("FAILURE:BAD_PESET");
+	str->setResponse(content);
 	string response;
 	response = str->str2json();
     std::cout << response<<endl;

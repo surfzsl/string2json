@@ -85,5 +85,11 @@ class PublicationPeCheck :public String2Json
 public:
 	string str2json();
 };
+
+class PeToSubserviceList2Json :public String2Json
+{
+public:
+	string str2json();
+};
 #endif // !WEB_STRING2JSON
 #pragma once
