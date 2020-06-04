@@ -91,5 +91,29 @@ class PeToSubserviceList2Json :public String2Json
 public:
 	string str2json();
 };
+
+class RepermissionTest2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class RepermissionReset2Json:public String2Json
+{
+public:
+	string str2json();
+};
+
+class DaemonStatus2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class GetServiceAttributes2Json : public String2Json
+{
+public:
+	string str2json();
+};
 #endif // !WEB_STRING2JSON
 #pragma once

@@ -45,7 +45,7 @@ string Login2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -140,7 +140,7 @@ string ContentList2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -173,7 +173,7 @@ string SubscriptionList2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -206,7 +206,7 @@ string PublicationList2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -245,7 +245,7 @@ string UserSubServiceList2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -288,7 +288,7 @@ string PeCheck2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -332,7 +332,7 @@ string ItemCheck2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -375,7 +375,7 @@ string PublicationPeCheck::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
 	}
 	return response;
 }
@@ -415,7 +415,143 @@ string PeToSubserviceList2Json::str2json() {
 		}
 	}
 	else {
-		response = "";
+		response = "{}";
+	}
+	return response;
+}
+
+string RepermissionTest2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\", \"RESULT\":";
+		vec = split(strtmp, ":");
+		if (vec.size() > 1) {
+			response += "\"" + vec[1] + "\"}";
+		}
+		else {
+			response += "\"\"}";
+		}
+	}
+	else if (strtmp.find("FAILURE:") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"FAILURE\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string RepermissionReset2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\"}";
+	}
+	else if (strtmp.find("FAILURE:") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"FAILURE\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string DaemonStatus2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\", \"RESULT\":";
+		vec = split(strtmp, ":");
+		if (vec.size() > 1) {
+			response += "\"" + vec[1] + "\"}";
+		}
+		else {
+			response += "\"\"}";
+		}
+	}
+	else if (strtmp.find("DENIED") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"DENIED\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string GetServiceAttributes2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"servicelist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			vector<string> v;
+			for (; i < vec.size(); i++) {
+				v = split(vec[i], ":");
+				if (v.size() < 5)
+					continue;
+				response += "{\"serviceID\":\"" + v[0] + "\",";
+				response += "\"serviceName\":\"" + v[1] + "\",";
+				response += "\"vendorService\":\"" + v[2] + "\",";
+				response += "\"QoSForTheService\":\"" + v[3] + ":" + v[4] +"\",";
+				response += "\"ServicePermissionType\":\"" + v[5] + "\"},";
+			}
+		}
+		response[response.size() - 1] = '\0';
+		response += "]}}";
+	}
+	else if (strtmp.find("DENIED:") != string::npos || strtmp.find("FAILURE") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"" + vec[0] + "\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "{}";
 	}
 	return response;
 }
