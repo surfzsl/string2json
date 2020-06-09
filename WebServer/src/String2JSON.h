@@ -115,5 +115,34 @@ class GetServiceAttributes2Json : public String2Json
 public:
 	string str2json();
 };
+class GetAuthorizationDictionaryChecksum2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class Statistics2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class ResetStatistics2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class CacheLoad2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class CacheDump2Json :public String2Json
+{
+public:
+	string str2json();
+};
 #endif // !WEB_STRING2JSON
 #pragma once

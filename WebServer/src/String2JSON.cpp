@@ -555,3 +555,139 @@ string GetServiceAttributes2Json::str2json() {
 	}
 	return response;
 }
+
+string GetAuthorizationDictionaryChecksum2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\", \"RESULT\":";
+		vec = split(strtmp, ":");
+		if (vec.size() > 1) {
+			response += "\"" + vec[1] + "\"}";
+		}
+		else {
+			response += "\"\"}";
+		}
+	}
+	else if (strtmp.find("DENIED:") != string::npos) {
+		vec = split(strtmp, ":");
+		response += "\"DENIED\",\"reason\":\"";
+		if (vec.size() > 1) {
+			response += vec[1] + "\"}";
+		}
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string Statistics2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"statisticslist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 2) {
+			int i = 2;
+			vector<string> v;
+			for (; i < vec.size() - 1; i++) {
+				v = split(vec[i], ":");
+				if (v.size() > 1) {
+					response += "{\"name\":\"" + v[0] + "\", \"value\":\"" + v[1] + "\"},";
+				}
+			}
+			v = split(vec[i], ":");
+			response += "{\"name\":\"" + v[0] + "\", \"value\":\"" + v[1] + "\"}";
+			response += "]}}";
+		}
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string ResetStatistics2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"statisticslist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 2) {
+			int i = 2;
+			vector<string> v;
+			for (; i < vec.size() - 1; i++) {
+				v = split(vec[i], ":");
+				if (v.size() > 1) {
+					response += "{\"name\":\"" + v[0] + "\", \"value\":\"" + v[1] + "\"},";
+				}
+			}
+			v = split(vec[i], ":");
+			response += "{\"name\":\"" + v[0] + "\", \"value\":\"" + v[1] + "\"}";
+			response += "]}}";
+		}
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string CacheLoad2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\"}";
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string CacheDump2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\"}";
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
