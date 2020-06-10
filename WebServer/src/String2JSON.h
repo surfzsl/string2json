@@ -144,5 +144,17 @@ class CacheDump2Json :public String2Json
 public:
 	string str2json();
 };
+
+class CacheRemove2Json :public String2Json
+{
+public:
+	string str2json();
+};
+
+class ItemToPe2Json :public String2Json
+{
+public:
+	string str2json();
+};
 #endif // !WEB_STRING2JSON
 #pragma once

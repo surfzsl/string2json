@@ -276,9 +276,10 @@ string PeCheck2Json::str2json() {
 					response += "]},";
 				}
 			}
-			response[response.size() - 1] = '\0';
-			response += "]}}";
 		}
+		if (response[response.size() - 1] == ',')
+			response[response.size() - 1] = '\0';
+		response += "]}}";
 	}
 	else if (strtmp.find("DENIED:") != string::npos || strtmp.find("FAILURE") != string::npos) {
 		vec = split(strtmp, ":");
@@ -363,9 +364,10 @@ string PublicationPeCheck::str2json() {
 					response += "]},";
 				}
 			}
-			response[response.size() - 1] = '\0';
-			response += "]}}";
 		}
+		if (response[response.size() - 1] == ',')
+			response[response.size() - 1] = '\0';
+		response += "]}}";
 	}
 	else if (strtmp.find("DENIED:") != string::npos || strtmp.find("FAILURE") != string::npos) {
 		vec = split(strtmp, ":");
@@ -685,6 +687,64 @@ string CacheDump2Json::str2json() {
 	//DENIED:xxxxxxx
 	if (strtmp.find("SUCCESS") != string::npos) {
 		response += "\"SUCCESS\"}";
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string CacheRemove2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+	//login response message
+	//SUCCESS:
+	//(XXX)
+	//DENIED:xxxxxxx
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response += "\"SUCCESS\"}";
+	}
+	else {
+		response = "{}";
+	}
+	return response;
+}
+
+string ItemToPe2Json::str2json() {
+	string response, strtmp;
+	strtmp = getResponse();
+	vector<string> vec;
+	if (strtmp.empty())
+		return strtmp;
+	response = "{\"STATUS\":";
+
+	if (strtmp.find("SUCCESS") != string::npos) {
+		response = "{\"STATUS\":\"SUCCESS\", \"DATA\":{\"pelist\": [";
+		vec = split(strtmp, "\n");
+		if (vec.size() > 1) {
+			int i = 1;
+			vector<string> v;
+			for (; i < vec.size(); i++) {
+				v = split(vec[i], ",");
+				if (v.size() > 1) {
+					response += "{\"subserviceName\":\"" + v[0] + "\", \"peitems\":[";
+					int n = 1;
+					for (; n < v.size() - 1; n++) {
+						response += "\"" + v[n] +"\"" + ",";
+					}
+					response += "\"" + v[n] + "\"";
+					response += "]},";
+				}
+			}
+			
+		}
+		if (response[response.size() - 1] == ',')
+			response[response.size() -1] = '\0';
+		response += "]}}";
 	}
 	else {
 		response = "{}";

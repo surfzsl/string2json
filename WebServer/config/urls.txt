@@ -1,5 +1,3 @@
 SUCCESS:
-1:E:|:OSA
-2:E:|:OSA
-3:E:|:OSA
-4:E:|:OSA
+ROSIC_RDF,62,-,*
+XYZ_SERVICE,*
