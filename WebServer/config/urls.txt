@@ -1,3 +1,101 @@
+#1 login
 SUCCESS:
-ROSIC_RDF,62,-,*
-XYZ_SERVICE,*
+siteA
+#2 logout
+SUCCESS:
+siteB
+#3 domainlist
+SUCCESS:
+siteA
+siteB
+#4 permissionvariable
+SUCCESS:
+dacs7.3.F1
+#5 contentlist
+SUCCESS:
+1
+2
+3
+4
+6
+7
+8
+9
+12
+13
+14
+16
+17
+18
+20
+21
+22
+23
+24
+25
+26
+27
+#6 subscriptionlist
+SUCCESS:
+*.N
+*.n
+#7 publicationlist
+SUCCESS:
+*.N
+*.n
+#8 usersubservicelist
+SUCCESS:
+P:WWPRIVATE
+E:TYOOSA
+E:TSOSTIF
+E:NYMKBT
+E:NYMIPE
+E:MGEWPG
+E:MGEKBT
+E:KOSKSC
+E:KBTWPG
+E:KBTCBOT
+E:FSILS1D
+E:COMNYM
+E:CMECBOT
+E:CBTWPG
+E:WSE
+E:WPG
+E:VIE
+E:TYO
+E:TORMP
+E:TOR
+p:p_SBU1
+p:p_SBU2
+e:p_SRCA
+e:p_SRCB
+#9 pecheck
+SUCCESS:
+ROSIC_RDF,1,1,1,1,0,1,1,1,1,0
+DIRECTFEED,0,0,0,0,0,0,0,0,0,0
+#10 itemcheck
+SUCCESS:
+ROSIC_RDF,1,1,1,1,0,1,1,1,1,0
+DIRECTFEED,0,0,0,0,0,0,0,0,0,0
+#11 publicationpecheck
+SUCCESS:
+ROSIC_RDF,1,1,1,1,0,1,1,1,1,0
+DIRECTFEED,0,0,0,0,0,0,0,0,0,0
+#12 petosubservicelist
+SUCCESS:
+1:E:|:OSA
+2:E:|:OSA
+3:E:|:OSA
+4:E:|:OSA
+1:P:|:WWIRMM
+1:P:|:WWSE3IDN
+1:P:|:WWMK3IDN
+1:P:|:WWI3000XTRA
+1:P:|:WWCEPIDN
+1:P:|:WWUVTMETALS
+1:P:|:WWUVTENERGY
+1:P:|:WWUVTCOMMODS
+#13 repermissiontest
+SUCCESS:FALSE
+#14 repermissionreset
+FAILURE:UNKNOWN User Session

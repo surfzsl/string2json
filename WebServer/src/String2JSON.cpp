@@ -122,7 +122,7 @@ string ContentList2Json::str2json() {
 
 	response = "{\"STATUS\":";
 	if (strtmp.find("SUCCESS") != string::npos) {
-		response = "\"SUCCESS\", \"DATA\":{\"contentlist\": [";
+		response += "\"SUCCESS\", \"DATA\":{\"contentlist\": [";
 		vec = split(strtmp, "\n");
 		if (vec.size() > 1) {
 			int i = 1;
@@ -338,7 +338,7 @@ string ItemCheck2Json::str2json() {
 	return response;
 }
 
-string PublicationPeCheck::str2json() {
+string PublicationPeCheck2Json::str2json() {
 	string response, strtmp;
 	strtmp = getResponse();
 	vector<string> vec;

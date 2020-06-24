@@ -9,7 +9,7 @@ using namespace std;
 class String2Json
 {
 public:
-	void setResponse(const string str) { m_response = str; }
+	void setResponse(const string str) { m_response = str; if (m_response[m_response.size() - 1] == '\n') { m_response[m_response.size() - 1] = '\0'; } }
 	const string& getResponse() const { return m_response; }
 	vector <string> split(const string &str, const string &seperator);
 	virtual string str2json() = 0;
@@ -80,7 +80,7 @@ public:
 	string str2json();
 };
 
-class PublicationPeCheck :public String2Json
+class PublicationPeCheck2Json :public String2Json
 {
 public:
 	string str2json();

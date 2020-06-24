@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include"src/String2JSON.h"
+#include "src/testcode/String2JSONTest.h"
 using namespace std;
 
 int main()
@@ -12,7 +13,9 @@ int main()
 	ifstream ifile("./config/urls.txt");
 	string filename;
 	string line;
-
+	ofstream ofile("./test/output.txt", ios::trunc);
+	ofile.close();
+	//String2JSONTest test;
 	//String2Json *str = new Login2Json();
 	//String2Json *str = new Domainlist2Json();
 	//String2Json *str = new PermissionVariable2Json();
@@ -29,10 +32,11 @@ int main()
 	//String2Json * str = new GetAuthorizationDictionaryChecksum2Json();
 	//String2Json * str = new Statistics2Json();
 	//String2Json * str = new CacheLoad2Json();
-	String2Json * str = new ItemToPe2Json();
+	//String2Json * str = new ItemToPe2Json();
 	//str->str2json();
+	//String2Json *str = test["login"];
 	string content = "";
-
+	/***
 	if (ifile)
 	{
 		while (getline(ifile, line))  
@@ -52,5 +56,10 @@ int main()
 	string response;
 	response = str->str2json();
     std::cout << response<<endl;
+	
+	***/
+	String2JSONTest test;
+	test.init();
+	test.runtest();
 }
 
