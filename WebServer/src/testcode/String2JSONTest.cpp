@@ -19,6 +19,15 @@ void String2JSONTest::init() {
 	m_funcmap["petosubservicelist"] = new PeToSubserviceList2Json();
 	m_funcmap["repermissiontest"] = new RepermissionTest2Json();
 	m_funcmap["repermissionreset"] = new RepermissionReset2Json();
+	m_funcmap["daemonstatus"] = new DaemonStatus2Json();
+	m_funcmap["getserviceattributes"] = new GetServiceAttributes2Json();
+	m_funcmap["getauthorizationdictionarychecksum"] = new GetAuthorizationDictionaryChecksum2Json();
+	m_funcmap["statistics"] = new Statistics2Json();
+	m_funcmap["resetstatistics"] = new ResetStatistics2Json();
+	m_funcmap["cacheload"] = new CacheLoad2Json();
+	m_funcmap["cachedump"] = new CacheDump2Json();
+	m_funcmap["cacheremove"] = new CacheRemove2Json();
+	m_funcmap["itemtope"] = new ItemToPe2Json();
 }
 
 void String2JSONTest::get_case(string line) {
@@ -61,7 +70,7 @@ int String2JSONTest::runtest() {
 			//#1 login(format of the case number line, '#'+ number + ' ' + casename
 			//string casenum, casename;
 			
-			if (line[0] == '#') {
+			if (line.size() > 1 && line[0] == '#') {
 				if (!content.empty()) {
 					if (it != m_funcmap.end()) {
 						it->second->setResponse(content);

@@ -99,3 +99,179 @@ SUCCESS:
 SUCCESS:FALSE
 #14 repermissionreset
 FAILURE:UNKNOWN User Session
+#15 daemonstatus
+SUCCESS:UP
+#16 getserviceattributes
+SUCCESS:
+1990:SBE_SOURCE:SBE_SOURCE:R:0:SIP
+23:IDN_SELECTFEED:IDN:R:0:SC
+257:ROSIC_RDF:IDN:R:0:SC
+273:RDF_NUMBER2:IDN:R:0:SC
+3090:DIRECTFEED:DIRECTFEED:R:0:S
+5000:RDF:IDN:R:0:SC
+8001:BOSTON_8001:IDN:R:0:SC
+#17 getauthorizationdictionarychecksum
+SUCCESS:16531
+#18 statistics
+SUCCESS:
+PROCESS STATUS:
+Process Name:odps
+Version:8.1.0.L1
+Listen Port:8088
+Login Timeout:60
+Cache Timeout:1200
+Verbose:FALSE
+Unbind On Failure:DISABLED
+Single Connect:TRUE
+MultiConnect Count:0
+SERVER LOAD:
+Total Messages:1
+Total Messages/sec:0
+Bytes Received:647
+Bytes Received/sec:0
+Bytes Sent:0
+Bytes Sent/sec:0
+Users In Cache:0
+Login Latency Avg:0.0
+Login Latency Max:0.0
+Log In Denied:0
+Permission Denied:0
+MESSAGES RECEIVED:
+Subscription Test:0
+Publication Test:0
+Usr Content List:0
+Usr PubCntnt List:0
+Usr Sbscrptn List:0
+Usr Pub List:0
+Usr SubSrvc List:0
+PE->SubSrvc List:0
+Repermission Test:0
+Repermission Reset:0
+Active Logins List:0
+DACS Daemon Status:0
+DACS Dctnry ChckSm:0
+Service Attributes:0
+User PE Check:0
+User Pub PE Check:0
+User Item Check:0
+User PO Check:0
+Statistics:1
+Domain List:0
+Cache Dump:0
+Cache Load:0
+Cache Remove:0
+Item To PE:0
+Log In:0
+Log Out:0
+Permission Denied:0
+Permission Variable:0
+User Service List: 0
+Unknown / Help: 0
+LAST COMMAND:
+Command:
+Domain:
+User:
+Position:
+Application:
+Service:
+Item:
+Usage:
+RequestType:
+Closure:
+AutoPE:
+DomainSearch:
+Variable Name:
+OnDemand:
+Infra Connection:UP
+Item Cache:
+Item Cached:0
+Config Cache Lines:10000
+Load Factor:0.000000
+Longest Chain:0
+Cache hit ratio:0
+Invalid Items:0
+#19 resetstatistics
+SUCCESS:
+PROCESS STATUS:
+Process Name:odps
+Version:8.1.0.L1
+Listen Port:8088
+Login Timeout:60
+Cache Timeout:1200
+Verbose:TRUE
+Unbind On Failure:DISABLED
+Single Connect:TRUE
+MultiConnect Count:0
+SERVER LOAD:
+Total Messages:0
+Total Messages/sec:0
+Bytes Received:0
+Bytes Received/sec:0
+Bytes Sent:0
+Bytes Sent/sec:0
+Users In Cache:0
+Login Latency Avg:0.0
+Login Latency Max:0.0
+MESSAGES RECEIVED:
+Subscription Test:0
+Publication Test:0
+Usr Content List:0
+Usr PubCntnt List:0
+Usr Sbscrptn List:0
+Usr Pub List:0
+Usr SubSrvc List:0
+PE->SubSrvc List:0
+Repermission Test:0
+Repermission Reset:0
+Active Logins List:0
+DACS Daemon Status:0
+DACS Dctnry ChckSm:0
+Service Attributes:0
+User PE Check:0
+User Pub PE Check:0
+User Item Check:0
+User PO Check:0
+Statistics:0
+Domain List:0
+Cache Dump:0
+Cache Load:0
+Cache Remove:0
+Item To PE:0
+Log In:0
+Log Out:0
+Permission Variable:0
+User Service List: 0
+Unknown / Help:0
+LAST COMMAND:
+Command:resetStatistics
+Domain:
+User:
+Position:
+Application:
+Service:
+Item:
+Usage:
+RequestType:
+Closure:
+DomainSearch:
+Variable Name:
+OnDemand:
+AutoPE:
+Infra Connection:UP
+Item Cache:
+Item Cached:0
+Config Cache Lines:10000
+Load Factor:0.000000
+Longest Chain:0
+Cache hit ratio:0
+Invalid Items:0
+#20 cacheload
+SUCCESS:
+#21 cachedump
+SUCCESS:
+#22 cacheremove
+SUCCESS:
+#23 itemtope
+SUCCESS:
+ROSIC_RDF,62,-,*
+XYZ_SERVICE,*
