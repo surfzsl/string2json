@@ -275,3 +275,11 @@ SUCCESS:
 SUCCESS:
 ROSIC_RDF,62,-,*
 XYZ_SERVICE,*
+#24 login
+DENIED: not authorised
+#25 login
+FAILED
+#26 logout
+DENIED: logout failed
+#26 logout
+FAILED

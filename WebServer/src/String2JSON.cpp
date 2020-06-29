@@ -58,7 +58,8 @@ string Logout2Json::str2json() {
 		json.setResponse(getResponse());
 		return json.str2json();
 	}
-	response = getResponse();
+	//response = getResponse();
+	response = "{}";
 	return response;
 }
 
