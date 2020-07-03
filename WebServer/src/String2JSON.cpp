@@ -81,6 +81,12 @@ string Domainlist2Json::str2json() {
 			}
 			response += "\"" + vec[i] + "\"]}}";
 		}
+		else {
+			response += "]}}";
+		}
+	}
+	else {
+		response = "{}";
 	}
 	return response;
 }
@@ -137,8 +143,15 @@ string ContentList2Json::str2json() {
 		vec = split(strtmp, ":");
 		response += "\"DENIED\",\"reason\":\"";
 		if (vec.size() > 1) {
-			response += vec[1] + "\"}";
+			for (int n = 1; n < vec.size(); n++) {
+				response += vec[n];
+				if (n != vec.size() - 1) {
+					response += ":";
+				}
+
+			}
 		}
+		response += "\"}";
 	}
 	else {
 		response = "{}";
@@ -170,8 +183,15 @@ string SubscriptionList2Json::str2json() {
 		vec = split(strtmp, ":");
 		response += "\"DENIED\",\"reason\":\"";
 		if (vec.size() > 1) {
-			response += vec[1] + "\"}";
+			for (int n = 1; n < vec.size(); n++) {
+				response += vec[n];
+				if (n != vec.size() - 1) {
+					response += ":";
+				}
+
+			}
 		}
+		response += "\"}";
 	}
 	else {
 		response = "{}";
@@ -203,8 +223,15 @@ string PublicationList2Json::str2json() {
 		vec = split(strtmp, ":");
 		response += "\"DENIED\",\"reason\":\"";
 		if (vec.size() > 1) {
-			response += vec[1] + "\"}";
+			for (int n = 1; n < vec.size(); n++) {
+				response += vec[n];
+				if (n != vec.size() -1) {
+					response += ":";
+				}
+			
+			}
 		}
+		response += "\"}";
 	}
 	else {
 		response = "{}";

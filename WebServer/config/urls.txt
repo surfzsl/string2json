@@ -281,5 +281,33 @@ DENIED: not authorised
 FAILED
 #26 logout
 DENIED: logout failed
-#26 logout
+#27 logout
 FAILED
+#28 domainlist
+SUCCESS:
+#29 domainlist
+FAILED
+#30 permissionvariable
+FAILED
+#31 contentlist
+DENIED:Access Denied:no permission
+#32 contentlist
+DENIED:LOOKUP_FAILURE
+#33 contentlist
+DENIED:no permission
+#34 contentlist
+FAILED:no access permission
+#35 subscriptionlist
+DENIED:LOOKUP_FAILURE
+#36 subscriptionlist
+DENIED:Access Denied:some reason
+#37 subscriptionlist
+DENIED:some reason, may not have permission
+#38 subscriptionlist
+FAILED
+#39 publicationlist
+DENIED:LOOKUP_FAILURE
+#40 publicationlist
+DENIED:UNKNOWN
+#41 publicationlist
+DENIED:Access Denied:unknown
