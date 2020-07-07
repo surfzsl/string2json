@@ -267,10 +267,16 @@ string UserSubServiceList2Json::str2json() {
 	else if (strtmp.find("DENIED:") != string::npos) {
 
 		vec = split(strtmp, ":");
-		response += "\"DENIED\",\"reason\":\"";
 		if (vec.size() > 1) {
-			response += vec[1] + "\"}";
+			for (int n = 1; n < vec.size(); n++) {
+				response += vec[n];
+				if (n != vec.size() - 1) {
+					response += ":";
+				}
+
+			}
 		}
+		response += "\"}";
 	}
 	else {
 		response = "{}";

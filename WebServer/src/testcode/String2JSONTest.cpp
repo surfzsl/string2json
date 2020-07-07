@@ -69,7 +69,6 @@ int String2JSONTest::runtest() {
 			//line start with # is case number and case name
 			//#1 login(format of the case number line, '#'+ number + ' ' + casename
 			//string casenum, casename;
-			
 			if (line.size() > 1 && line[0] == '#') {
 				if (!content.empty()) {
 					if (it != m_funcmap.end()) {
@@ -79,7 +78,7 @@ int String2JSONTest::runtest() {
 						outfile << temp << "\n";
 					}
 				}
-
+				outfile << line << "\n";
 				get_case(line);
 				it = m_funcmap.find(m_casename);
 					

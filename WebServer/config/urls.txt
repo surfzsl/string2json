@@ -311,3 +311,75 @@ DENIED:LOOKUP_FAILURE
 DENIED:UNKNOWN
 #41 publicationlist
 DENIED:Access Denied:unknown
+#42 usersubservicelist
+DENIED:Access Denied:some reason
+#43 usersubservicelist
+DENIED:LOOKUP_FAILURE
+#44 usersubservicelist
+DENIED:Access Denied:some reason
+#45 pecheck
+FAILURE:BAD_PESET
+#46 pecheck
+DENIED:Invalid Domain
+#47 itemcheck
+FAILURE:BAD_PESET
+#48 itemcheck
+DENIED:Invalid Domain
+#49 publicationpecheck
+FAILURE:BAD_PESET
+#50 publicationpecheck
+DENIED:Invalid Domain
+#51 petosubservicelist
+DENIED:LOOKUP_FAILURE
+#52 petosubservicelist
+DENIED:Access Denied for some reason
+#53 repermissiontest
+SUCCESS:TRUE
+#54 repermissiontest
+FAILURE:UNKNOWN User Session
+#55 repermissionreset
+FAILURE:UNKNOWN User Session
+#56 daemonstatus
+SUCCESS:DOWN
+#57 daemonstatus
+DENIED:Invalid Domain
+#58 daemonstatus
+FAILURE: Invalide Domain
+#59 getserviceattributes
+DENIED:0
+#60 getserviceattributes
+DENIED:Invalid Domain
+#61 getserviceattributes
+FAILURE:UNKNOWN
+#62 getserviceattributes
+unknown reason
+#63 getauthorizationdictionarychecksum
+DENIED:0
+#64 getauthorizationdictionarychecksum
+DENIED:Invalid Domain
+#65 getauthorizationdictionarychecksum
+FAILURE:UNKONWN
+#66 statistics
+DENIED:no permission
+#67 statistics
+FAILURE:UNKNOWN
+#68 resetstatistics
+DENIED:no permission
+#69 resetstatistics
+FAILURE:UNKNOWN
+#70 cacheload
+DENIED:no permission
+#71 cacheload
+FAILURE:UNKNOWN
+#72 cachedump
+DENIED:no permission
+#73 cachedump
+FAILURE:UNKNOWN
+#74 cacheremove
+DENIED:no permission
+#75 cacheremove
+FAILURE:UNKNOWN
+#76 itemtope
+DENIED:no permission
+#77 itemtope
+FAILURE:UNKNOWN
