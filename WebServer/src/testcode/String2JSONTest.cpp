@@ -105,3 +105,39 @@ int String2JSONTest::runtest() {
 	outfile.close();
 	return 0;
 }
+
+int String2JSONTest::testreport() {
+	ifstream iout("./test/output.txt");
+	ifstream igolden("./goldenfile/output.golden.txt");
+	ofstream outfile("./test/report.txt", ios::app);
+	string line1, line2;
+	int count = 0;
+	if (iout && igolden) {
+		while (getline(iout, line1) && getline(igolden, line2)) {
+			if (line1.compare(line2) == 0) {
+				if (line1[0] == '#') {
+					outfile << line1 << "\n";
+				}
+				else {
+					outfile << "SUCCESS" << "\n";
+				}
+			}
+			else {
+				if (line1[0] == '#') {
+					iout.close();
+					igolden.close();
+					outfile.close();
+					return count;
+				}				else {
+					outfile << "FAILED" << "\n";
+					count++;
+				}
+					
+			}
+		}
+	}
+	iout.close();
+	igolden.close();
+	outfile.close();
+	return count;
+}

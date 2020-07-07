@@ -1,0 +1,154 @@
+#1 login
+SUCCESS
+#2 logout
+SUCCESS
+#3 domainlist
+SUCCESS
+#4 permissionvariable
+SUCCESS
+#5 contentlist
+SUCCESS
+#6 subscriptionlist
+SUCCESS
+#7 publicationlist
+SUCCESS
+#8 usersubservicelist
+SUCCESS
+#9 pecheck
+SUCCESS
+#10 itemcheck
+SUCCESS
+#11 publicationpecheck
+SUCCESS
+#12 petosubservicelist
+SUCCESS
+#13 repermissiontest
+SUCCESS
+#14 repermissionreset
+SUCCESS
+#15 daemonstatus
+SUCCESS
+#16 getserviceattributes
+SUCCESS
+#17 getauthorizationdictionarychecksum
+SUCCESS
+#18 statistics
+SUCCESS
+#19 resetstatistics
+SUCCESS
+#20 cacheload
+SUCCESS
+#21 cachedump
+SUCCESS
+#22 cacheremove
+SUCCESS
+#23 itemtope
+SUCCESS
+#24 login
+SUCCESS
+#25 login
+SUCCESS
+#26 logout
+SUCCESS
+#27 logout
+SUCCESS
+#28 domainlist
+SUCCESS
+#29 domainlist
+SUCCESS
+#30 permissionvariable
+SUCCESS
+#31 contentlist
+SUCCESS
+#32 contentlist
+SUCCESS
+#33 contentlist
+SUCCESS
+#34 contentlist
+SUCCESS
+#35 subscriptionlist
+SUCCESS
+#36 subscriptionlist
+SUCCESS
+#37 subscriptionlist
+SUCCESS
+#38 subscriptionlist
+SUCCESS
+#39 publicationlist
+SUCCESS
+#40 publicationlist
+SUCCESS
+#41 publicationlist
+SUCCESS
+#42 usersubservicelist
+SUCCESS
+#43 usersubservicelist
+SUCCESS
+#44 usersubservicelist
+SUCCESS
+#45 pecheck
+SUCCESS
+#46 pecheck
+SUCCESS
+#47 itemcheck
+SUCCESS
+#48 itemcheck
+SUCCESS
+#49 publicationpecheck
+SUCCESS
+#50 publicationpecheck
+SUCCESS
+#51 petosubservicelist
+SUCCESS
+#52 petosubservicelist
+SUCCESS
+#53 repermissiontest
+SUCCESS
+#54 repermissiontest
+SUCCESS
+#55 repermissionreset
+SUCCESS
+#56 daemonstatus
+SUCCESS
+#57 daemonstatus
+SUCCESS
+#58 daemonstatus
+SUCCESS
+#59 getserviceattributes
+SUCCESS
+#60 getserviceattributes
+SUCCESS
+#61 getserviceattributes
+SUCCESS
+#62 getserviceattributes
+SUCCESS
+#63 getauthorizationdictionarychecksum
+SUCCESS
+#64 getauthorizationdictionarychecksum
+SUCCESS
+#65 getauthorizationdictionarychecksum
+SUCCESS
+#66 statistics
+SUCCESS
+#67 statistics
+SUCCESS
+#68 resetstatistics
+SUCCESS
+#69 resetstatistics
+SUCCESS
+#70 cacheload
+SUCCESS
+#71 cacheload
+SUCCESS
+#72 cachedump
+SUCCESS
+#73 cachedump
+SUCCESS
+#74 cacheremove
+SUCCESS
+#75 cacheremove
+SUCCESS
+#76 itemtope
+SUCCESS
+#77 itemtope
+SUCCESS

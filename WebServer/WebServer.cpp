@@ -61,5 +61,6 @@ int main()
 	String2JSONTest test;
 	test.init();
 	test.runtest();
+	test.testreport();
 }
 

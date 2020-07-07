@@ -13,6 +13,7 @@ public:
 	void init();
 	string get_response();
 	int runtest();
+	int testreport();
 	void set_casenum(string num);
 	string get_casenum();
 	void set_casenmae();
